@@ -46,7 +46,7 @@ def play(my_songs)
   #if it is, play the song using the system 'open <file path>' syntax
   #get the file path of the song by looking it up in the my_songs hash
   puts "Please enter a song name: "
-  input = gets.chomp.capitalize
+  input = gets.chomp..split.map(&:capitalize).join(' ')
   if my_songs.include?(input)
     system("echo open " + my_songs[input])
   else
