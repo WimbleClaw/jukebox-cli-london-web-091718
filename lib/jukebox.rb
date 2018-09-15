@@ -28,7 +28,7 @@ end
 
 def play (song_array)
   puts "Please enter a song name or number:"
-  input = gets.chomp
+  input = gets.chomp.split.map(&:capitalize).join(' ')
   if song_array.include?(input)
     puts "Playing #{song_array}"
   elsif (1..9).include?(input.to_i) 

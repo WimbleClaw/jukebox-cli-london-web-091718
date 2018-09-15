@@ -46,9 +46,14 @@ def play(my_songs)
   #if it is, play the song using the system 'open <file path>' syntax
   #get the file path of the song by looking it up in the my_songs hash
   puts "Please enter a song name: "
-  input = gets.chomp
+  input = gets.chomp.downcase
+  my_songs.keys.each do |title|
+    lowercase_title=title.downcase
+    my_songs[lowercase_title] = my_songs[title]
+  end
+  puts input
   if my_songs.include?(input)
-    system("open " + my_songs[input])
+    system("echo open " + my_songs[input])
   else
     puts "Invalid input, please try again"
   end
@@ -61,9 +66,7 @@ end
 
 def run(my_songs)
   #this method is the same as in jukebox.rb
-  help
-  puts "Please enter a command:"
-  inital_input = gets.strip.downcase
+  inital_input = "hd"
   until inital_input == "exit"
     if inital_input == "list"
       list(my_songs)
@@ -72,6 +75,11 @@ def run(my_songs)
     elsif inital_input == "help"
       help
     end
+  help
+  puts "Please enter a command:"
+  inital_input = gets.strip.downcase
   end
   exit_jukebox
 end
+
+run(my_songs)
