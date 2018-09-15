@@ -63,7 +63,6 @@ def run(my_songs)
   #this method is the same as in jukebox.rb
   inital_input = "hd"
   until inital_input == "exit"
-    help
     if inital_input == "list"
       list(my_songs)
     elsif inital_input == "play"
@@ -71,6 +70,7 @@ def run(my_songs)
     elsif inital_input == "help"
       help
     end
+  help
   puts "Please enter a command:"
   inital_input = gets.strip.downcase
   end
