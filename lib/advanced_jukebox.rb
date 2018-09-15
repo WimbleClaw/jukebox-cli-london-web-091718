@@ -47,9 +47,9 @@ def play(my_songs)
   #get the file path of the song by looking it up in the my_songs hash
   puts "Please enter a song name: "
   input = gets.chomp.downcase
-  my_songs.each do |title, location|
+  my_songs.keys.each do |title|
     lowercase_title=title.downcase
-    my_songs[lowercase_title] = location
+    my_songs[lowercase_title] = my_songs[title]
   end
   puts input
   if my_songs.include?(input)
