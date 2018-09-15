@@ -61,8 +61,9 @@ end
 
 def run(my_songs)
   #this method is the same as in jukebox.rb
-  inital_input = "help"
+  inital_input = "hd"
   until inital_input == "exit"
+    help
     if inital_input == "list"
       list(my_songs)
     elsif inital_input == "play"
