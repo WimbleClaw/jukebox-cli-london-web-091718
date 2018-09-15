@@ -72,6 +72,8 @@ def run(my_songs)
     elsif inital_input == "help"
       help
     end
+  puts "Please enter a command:"
+  inital_input = gets.strip.downcase
   end
   exit_jukebox
 end
